@@ -3,13 +3,16 @@ node {
     git branch: 'main', url: 'https://github.com/phatnt99/jenkin-springboot.git'
   }
 
+  stage("chmod") {
+    sh "chmod +x -R ${env.WORKSPACE}"
+  }
+
   stage("Compilation") {
     sh "./mvnw clean install -DskipTests"
   }
 
   stage("Tests and Deployment") {
     stage("Runing unit tests") {
-      sh "chmod +x -R ${env.WORKSPACE}"
       sh "./mvnw test -Punit"
     }
     stage("Deployment") {
