@@ -3,11 +3,6 @@ node {
     git branch: 'main', url: 'https://github.com/phatnt99/jenkin-springboot.git'
   }
 
-  stage("chmod") {
-    sh "sudo chmod +x -R /var/lib/jenkins"
-    sh "chmod +x -R ${env.WORKSPACE}"
-  }
-
   stage("Compilation") {
     sh "./mvnw clean install -DskipTests"
   }
