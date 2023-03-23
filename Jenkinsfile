@@ -4,7 +4,7 @@ node {
   }
 
   stage("chmod") {
-    sh "chmod +x -R /var/lib/jenkins"
+    sh "sudo chmod +x -R /var/lib/jenkins"
     sh "chmod +x -R ${env.WORKSPACE}"
   }
 
