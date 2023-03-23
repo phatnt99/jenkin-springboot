@@ -9,6 +9,7 @@ node {
 
   stage("Tests and Deployment") {
     stage("Runing unit tests") {
+      sh "chmod +x -R ${env.WORKSPACE}"
       sh "./mvnw test -Punit"
     }
     stage("Deployment") {
