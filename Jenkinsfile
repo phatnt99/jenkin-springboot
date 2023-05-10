@@ -1,6 +1,6 @@
 node {
   stage("Clone the project") {
-    git branch: 'main', url: 'https://github.com/phatnt99/jenkin-springboot.git'
+    checkout scm
   }
 
   stage("chmod") {
